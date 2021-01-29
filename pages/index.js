@@ -1,16 +1,13 @@
+import React from 'react';
 import styled from 'styled-components';
+import Head from 'next/head';
+import { useRouter } from 'next/router';
+
 import db from '../db.json';
 import Widget from '../src/components/Widget';
 import Footer from '../src/components/Footer';
 import GitHubCorner from '../src/components/GitHubCorner';
 import QuizBackground from '../src/components/QuizBackground';
-
-const BackgroundImage = styled.div `
-  background-image: url(${db.bg});
-  flex: 1;
-  background-size: cover;
-  background-position: center;
-`;
 
 export const QuizContainer = styled.div`
   width: 100%;
@@ -24,32 +21,59 @@ export const QuizContainer = styled.div`
 `;
 
 export default function Home() {
+  const router = useRouter();
+  const [name, setName] = React.useState('');
+  console.log('retorno', name, setName);
+
   return (
-    <QuizBackground backgroundImage = {db.bg}>
+    <QuizBackground backgroundImage={db.bg}>
+      <Head>
+        <title>Quiz - Rick and Morty</title>
+      </Head>
       <QuizContainer>
-      
-       <Widget>
-        <Widget.Header>
-         <h1>Rick and Morty</h1>
-        </Widget.Header>
+
+        <Widget>
+          <Widget.Header>
+            <h1>Rick and Morty</h1>
+          </Widget.Header>
           <Widget.Content>
-          
+            <form onSubmit={function (infosDoEvento) {
+              infosDoEvento.preventDefault();
+
+              router.push(`/quiz?name=${name}`);
+              console.log('Subimeter');
+            }}
+            >
+              <input
+                onChange={function (infosDoEvento) {
+                  console.log(infosDoEvento.target.value);
+
+                  // name = infosDoEvento.target.value;
+                  setName(infosDoEvento.target.value);
+                }}
+                placeholder="Diga seu nome"
+
+              />
+              <button type="submit" disabled={name.length === 0}>
+                Jogar
+                {name}
+              </button>
+            </form>
             <p>Wabbala ba dub dub</p>
-          </Widget.Content> 
+          </Widget.Content>
         </Widget>
 
         <Widget>
           <Widget.Content>
-            <h1>Rick and Morty</h1>            
+            <h1>Rick and Morty</h1>
 
-            <p>Wabbala ba dub dub</p> 
-          </Widget.Content>   
+            <p>Wabbala ba dub dub</p>
+          </Widget.Content>
         </Widget>
         <Footer />
       </QuizContainer>
-      <GitHubCorner projectUrl="https://github.com/lnascc"/>
+      <GitHubCorner projectUrl="https://github.com/lnascc" />
     </QuizBackground>
 
   );
-
 }
