@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
@@ -8,17 +7,9 @@ import Widget from '../src/components/Widget';
 import Footer from '../src/components/Footer';
 import GitHubCorner from '../src/components/GitHubCorner';
 import QuizBackground from '../src/components/QuizBackground';
-
-export const QuizContainer = styled.div`
-  width: 100%;
-  max-width: 350px;
-  padding-top: 45px;
-  margin: auto 10%;
-  @media screen and (max-width: 500px) {
-    margin: auto;
-    padding: 15px;
-  }
-`;
+import Input from '../src/components/Input';
+import Button from '../src/components/Button';
+import QuizContainer from '../src/components/QuizContainer';
 
 export default function Home() {
   const router = useRouter();
@@ -44,7 +35,9 @@ export default function Home() {
               console.log('Subimeter');
             }}
             >
-              <input
+              <Input
+                name="nomeDoUsuario"
+                // eslint-disable-next-line react/jsx-no-bind
                 onChange={function (infosDoEvento) {
                   console.log(infosDoEvento.target.value);
 
@@ -52,12 +45,12 @@ export default function Home() {
                   setName(infosDoEvento.target.value);
                 }}
                 placeholder="Diga seu nome"
+                value={name}
 
               />
-              <button type="submit" disabled={name.length === 0}>
-                Jogar
-                {name}
-              </button>
+              <Button type="submit" disabled={name.length === 0}>
+                {`Jogar ${name}`}
+              </Button>
             </form>
             <p>Wabbala ba dub dub</p>
           </Widget.Content>

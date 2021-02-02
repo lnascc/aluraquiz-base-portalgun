@@ -1,28 +1,30 @@
 {
-  "bg": "https://wallpapercave.com/wp/wp1822724.jpg",
-  "title": "Quiz CSS da Alura",
-  "description": "Teste os seus conhecimentos sobre CSS e vamos ver quantos layouts você vai deixar de quebrar",
+  "bg": "https://images2.alphacoders.com/642/thumb-1920-642540.png",
+  "title": "Quiz portalgun",
+  "description": "Teste os seus conhecimentos sobre a série Rick & Morty",
   "questions": [
     {
-      "image": "https://media.giphy.com/media/xUOxf3yDKCuwpOlT3i/giphy.gif",
-      "title": "Como fazer um seletor por id via CSS?",
+      "image": "https://pbs.twimg.com/media/Es0yhRvXMAE2cKG.jpg",
+      "title": "Onde o parque da Anatomia ficava?",
       "description": "Essa é pra aquecer",
       "answer": 2,
       "alternatives": [
-        ".elemento",
-        "*elemento",
-        "#elemento",
-        "%elemento"
+        "Canada",
+        "Planeta Gorzo",
+        "Dentro de um mendigo",
+        "Ao lado do Shonens"
       ]
     },
     {
-      "image": "https://media.giphy.com/media/13FrpeVH09Zrb2/giphy.gif",
-      "title": "Como fazer um background gradiente com css?",
-      "description": "Faz tempo em haha",
+      "image": "https://rollingstone.uol.com.br/media/_versions/pickle-rick_widelg.jpg",
+      "title": "Como os Russos chamavam o Pickle Rick?",
+      "description": "Russia aquele pais la...",
       "answer": 0,
       "alternatives": [
-         "background: linear-gradient(#e66465, #9198e5);",
-         "background: gradient(#e66465, #9198e5);"
+         "Solenya",
+         "Piclezinho",
+         "Picles lunatico",
+         "El picles maligno"
       ]
     }
   ],
